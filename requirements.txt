@@ -1,0 +1,6 @@
+requests==2.31.0
+beautifulsoup4==4.12.2
+python-whois==0.8.0
+weasyprint==59.0
+flask==2.3.2
+gunicorn==21.2.0

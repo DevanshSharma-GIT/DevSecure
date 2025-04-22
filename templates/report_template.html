@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; color: #333; }
+        h1 { color: #00ff88; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background: #00ff88; color: #1a1a1a; }
+        .critical { color: #ff4444; }
+        .warning { color: #ffbb33; }
+        .safe { color: #00ff88; }
+    </style>
+</head>
+<body>
+    <h1>DevSecure Scan Report</h1>
+    <p>URL: {{ data.url }}</p>
+    <p>Timestamp: {{ timestamp }}</p>
+    <table>
+        <tr><th>Check</th><th>Status</th><th>Details</th></tr>
+        {% for key, value in data.items() if key not in ['url', 'timestamp'] %}
+        <tr>
+            <td>{{ key }}</td>
+            <td class="{{ value.status }}">{{ value.status }}</td>
+            <td>
+                {% if value.issues %}
+                    {{ value.issues | map(attribute='message') | join(', ') }}
+                {% elif value.message %}
+                    {{ value.message }}
+                {% else %}
+                    {{ value.data | tojson }}
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

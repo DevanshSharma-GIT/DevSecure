@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSecure Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>DevSecure</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="https://github.com/DevanshSharma-GIT">GitHub</a>
+            <a href="https://devanshsharma-git.github.io/Portfolio-/">Portfolio</a>
+        </nav>
+    </header>
+
+    <div class="dashboard">
+        <h2>DevSecure Scanner</h2>
+        <form id="scan-form" class="url-form">
+            <input type="text" id="url-input" placeholder="Enter website URL (e.g., example.com)" required>
+            <button type="submit">Scan</button>
+        </form>
+        <div id="results"></div>
+        <button id="download-report">Download Report</button>
+    </div>
+
+    <footer>
+        <p>© 2025 DevSecure. Created by <a href="https://devanshsharma-git.github.io/Portfolio-/">Devansh Sharma</a>.</p>
+    </footer>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
